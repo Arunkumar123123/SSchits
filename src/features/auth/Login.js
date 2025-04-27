@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import Arrival from "../../images/arrival.png";
+import Arrival from "../../assets/images/arrival1.png";
 
 import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

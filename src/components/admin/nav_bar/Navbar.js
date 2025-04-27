@@ -33,7 +33,7 @@ import {
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
 
 
-import Arrival from "../../../images/arrival1.png";
+import Arrival from "../../../assets/images/arrival1.png";
 import { DataContext } from "../../../Context/HelperOne";
 
 function classNames(...classes) {
@@ -567,7 +567,7 @@ export default function NavBar(props) {
           </div>
         </div>
         <div className="md:pl-64 flex flex-col flex-1">
-          <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-gray-300 shadow">
+          <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-gray-200 border border-b-gray-500 shadow">
             <button
               type="button"
               className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
@@ -577,7 +577,7 @@ export default function NavBar(props) {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
             <div className="flex-1 px-4 flex justify-between">
-              <div className="flex-1 flex bg-white">
+              <div className="flex-1 flex ">
                 <form className="w-full flex md:ml-0" action="#" method="GET">
                   {searchUi && (
                     <form
@@ -594,7 +594,7 @@ export default function NavBar(props) {
                       />
                       <input
                         id="search-field"
-                        className="block h-full w-full border-0 rounded-full p-8  pl-8 pr-0 text-gray-500 bg-white text-with placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+                        className="block  w-full border-0 rounded-xl    pl-8 pr-0 text-gray-500 bg-white text-with placeholder:text-gray-400 focus:ring-0 sm:text-sm"
                         placeholder="Search..."
                         type="search"
                         onChange={search}

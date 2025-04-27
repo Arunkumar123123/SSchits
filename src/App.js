@@ -1,9 +1,8 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Login from "./components/auth/Login";
+import Login from "../src/features/auth/Login";
 import axios from "axios";
 import { Unauthorized } from "./components/helper/HelperTwo";
-// import { ProtectedRoute } from "./components/helper/HelperOne";
 import {ProtectedRoute} from "../src/Context/HelperOne"
 import Test from "./components/test/Test";
 import RoleCreate from "./components/admin/role/RoleCreate";
@@ -16,8 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Employee from "./components/admin/employee/Employee";
 import Roles from "./components/admin/role/Role";
 import RoleAssign from "./components/admin/roleAssign/RoleAssign";
-import ForgetPassword from "./components/auth/ForgetPassword";
-import ResetPassword from "./components/auth/ResetPassword";
+import ForgetPassword from "../src/features/auth/ForgetPassword";
+import ResetPassword from "../src/features/auth/ResetPassword";
 
 import Dashboard from "./components/admin/dashboard/Dashboard";
 import Customer from "./components/admin/customer/Customer";
