@@ -18,7 +18,7 @@ import EmployeeCreate from "./EmployeeCreate";
 import EmployeeEdit from "./EmployeeEdit";
 import EmployeeView from "./EmployeeView";
 import { Tooltip } from "react-tooltip";
-import Breadcrumbs from "../breadcrumbs/Breadcrumbs";
+
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
@@ -201,7 +201,7 @@ const EmployeeList = () => {
     setEmployeeViewOpen(false);
   };
 
-  const breadcrumbItems = [{ name: "Employee", link: "/crm/employees" }];
+  
 
   return (
     <div>
@@ -232,7 +232,7 @@ const EmployeeList = () => {
         </div>
       ) : (
         <div>
-          <Breadcrumbs items={breadcrumbItems} />
+         
           <div className="px-4 sm:px-6 lg:px-8 mt-4">
             <div className="sm:flex sm:items-center">
               <div className="sm:flex-auto">

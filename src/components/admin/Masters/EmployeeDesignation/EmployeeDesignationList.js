@@ -16,7 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import SettingPage from "../../SettingPage/SettingPageCreate";
 import SettingPageEdit from "../../SettingPage/SettingPageEdit";
 import { Tooltip } from "react-tooltip";
-import Breadcrumbs from "../../breadcrumbs/Breadcrumbs";
+
 
 const EmployeeDesignationList = () => {
   const [employeeDesignation, setEmployeeDesignation] = useState([]);
@@ -261,7 +261,7 @@ const EmployeeDesignationList = () => {
 
   return (
     <div>
-      <Breadcrumbs items={breadcrumbItems} />
+      
       <div className="px-4 sm:px-6 lg:px-8 mt-4">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">

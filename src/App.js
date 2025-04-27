@@ -22,6 +22,7 @@ import EmployeeDepartment from "./components/admin/Masters/EmployeeDepartment/Em
 import Dashboard from "./components/admin/dashboard/Dashboard";
 import Customer from "./components/admin/customer/Customer";
 import Plan from "./components/admin/plan/Plan";
+import Group from "./components/admin/group/Group";
 
 
 
@@ -43,6 +44,8 @@ function App() {
         <Route path="/crm/dashboard" element={<Dashboard />} />
         <Route path="/crm/customer" element={<Customer />} />
         <Route path="/crm/plan" element={<Plan />} />
+        <Route path="/crm/group" element={<Group/>} />
+
         <Route
           path="/crm/employees"
           element={

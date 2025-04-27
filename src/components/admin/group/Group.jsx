@@ -1,20 +1,18 @@
 import { DataContext } from "../../helper/HelperOne";
 import { useState } from "react";
 import NavBar from "../nav_bar/Navbar";
-import PlanList from "./PlanList";
 
-
-const Plan = () => {
+const Group = () => {
     const [searchUi, setSearchUi] = useState(true)
     const [searchData, setSearchData] = useState(null)
   return (
     <DataContext.Provider value={{ searchUi, setSearchUi, searchData, setSearchData }}>
     <NavBar
-      childrenPage={<PlanList />}
+      childrenPage={<Group />}
       menuId={3}
     />
   </DataContext.Provider>
   )
 }
 
-export default Plan
+export default Group

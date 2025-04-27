@@ -67,74 +67,81 @@ export const Pagination = ({
   };
 
   return (
-    <div className="flex items-center justify-between bg-white px-4 py-3 sm:px-6">
-      <div className="flex flex-1 justify-between sm:hidden">
-        <Link
-          to="#"
-          onClick={handlePrevClick}
-          className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-        >
-          Previous
-        </Link>
-        <Link
-          href="#"
-          onClick={handleNextClick}
-          className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-        >
-          Next
-        </Link>
-      </div>
-      <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-        <div>
-          <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">{from}</span> to{" "}
-            <span className="font-medium">{to}</span> of{" "}
-            <span className="font-medium">{totalResults}</span> results
-          </p>
-        </div>
-        <div>
-          <nav
-            className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-            aria-label="Pagination"
+
+    <>
+      <div className="flex items-center justify-between  px-4 py-3 sm:px-6">
+        {/* Mobile pagination */}
+        <div className="flex flex-1 justify-between  sm:hidden">
+          <button
+            onClick={handlePrevClick}
+            className="inline-flex items-center rounded-lg border border-gray-300  px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
-            <Link
-              to="#"
-              onClick={handlePrevClick}
-              className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+            Previous
+          </button>
+          <button
+            onClick={handleNextClick}
+            className="inline-flex items-center rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            Next
+          </button>
+        </div>
+
+        {/* Desktop pagination */}
+        <div className="hidden sm:flex sm:flex-1  sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm text-gray-700">
+              Showing <span className="font-semibold">{from}</span> to{" "}
+              <span className="font-semibold">{to}</span> of{" "}
+              <span className="font-semibold">{totalResults}</span> results
+            </p>
+          </div>
+          <div>
+            <nav
+              className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+              aria-label="Pagination"
             >
-              <span className="sr-only">Previous</span>
-              <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-            </Link>
-            {links
-              .filter(
-                (link) => link.label !== "Previous" && link.label !== "Next"
-              )
-              .map((link, index) => (
-                <Link
-                  key={index}
-                  to="#"
-                  onClick={(e) => handlePageChange(e, link.label)}
-                  aria-current={link.active ? "page" : undefined}
-                  className={`relative ${
-                    link.active
-                      ? "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                      : "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50  focus:outline-offset-0"
-                  } inline-flex items-center px-4 py-2 text-sm font-semibold`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            <Link
-              to="#"
-              onClick={handleNextClick}
-              className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-            >
-              <span className="sr-only">Next</span>
-              <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-            </Link>
-          </nav>
+              <button
+                onClick={handlePrevClick}
+                className="relative inline-flex items-center rounded-l-md bg-blue-100 px-2 py-2 text-gray-500 hover:bg-gray-100 focus:z-20 focus:ring-2 focus:ring-indigo-500"
+              >
+                <span className="sr-only">Previous</span>
+                <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+              </button>
+              {console.log(links)}
+              {links
+                ?.filter((link) => link.url !== "Previous" && link.url !== "Next")
+                .map((link, index) => (
+                  <button
+                    key={index}
+                    onClick={(e) => handlePageChange(e, link.url)}
+                    aria-current={link.active ? "page" : undefined}
+                    className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${link.active
+                        ? "z-10 bg-indigo-50 text-black focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        : "text-gray-700 bg-white hover:bg-gray-100 ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      }`}
+                  >
+                    {link.page}
+                    
+                  </button>
+                ))}
+              <button
+                onClick={handleNextClick}
+                className="relative inline-flex items-center rounded-r-md bg-blue-100  px-2 py-2 text-gray-500 hover:bg-gray-100 focus:z-20 focus:ring-2 focus:ring-indigo-500"
+              >
+                <span className="sr-only">Next</span>
+                <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </nav>
+          </div>
         </div>
       </div>
-    </div>
+
+
+
+
+
+
+
+    </>
   );
 };

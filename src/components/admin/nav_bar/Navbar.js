@@ -23,7 +23,7 @@ import {
   ShieldCheckIcon,
 } from "@heroicons/react/24/solid";
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
-import Arrival from "../../../images/arrival.png";
+import Arrival from "../../../images/arrival1.png";
 import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
@@ -74,10 +74,10 @@ export default function NavBar(props) {
     });
     initialNavigation.push({
       name: "Group",
-      href: "/crm/plan",
+      href: "/crm/group",
       icon: UserGroupIcon,
       current: false,
-      id:3 ,
+      id:4,
     });
 
     initialNavigation.push({
@@ -85,7 +85,7 @@ export default function NavBar(props) {
       href: "/crm/plan",
       icon: UserCircleIcon,
       current: false,
-      id:3 ,
+      id:5 ,
     });
 
     initialNavigation.push({
@@ -93,7 +93,7 @@ export default function NavBar(props) {
       href: "/crm/plan",
       icon: RectangleGroupIcon,
       current: false,
-      id:3 ,
+      id:6 ,
     });
 
     initialNavigation.push({
@@ -101,7 +101,7 @@ export default function NavBar(props) {
       href: "/crm/plan",
       icon: CalendarDaysIcon,
       current: false,
-      id:3 ,
+      id:7 ,
     });
  
     initialNavigation.push({
@@ -312,7 +312,7 @@ export default function NavBar(props) {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <div className="relative flex-1 flex flex-col  max-w-xs w-full pt-5 pb-4 bg-white">
+              <div className="relative flex-1 flex flex-col  max-w-xs w-full pt-5 pb-4 bg-gray-300 border border-gray-500">
                 <Transition.Child
                   as={Fragment}
                   enter="ease-in-out duration-300"
@@ -325,12 +325,12 @@ export default function NavBar(props) {
                   <div className="absolute top-0 right-0 -mr-12 pt-2 ">
                     <button
                       type="button"
-                      className="ml-1 flex items-center   justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                      className="ml-1 flex items-center   justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300"
                       onClick={() => setSidebarOpen(false)}
                     >
                       <span className="sr-only">Close sidebar</span>
                       <XMarkIcon
-                        className="h-6 w-6 text-white"
+                        className="h-6 w-6 text-black"
                         aria-hidden="true"
                       />
                     </button>
@@ -343,9 +343,9 @@ export default function NavBar(props) {
                     alt="Workflow"
                   />
                 </div>
-                <div className="mt-5 flex-1 h-0 overflow-y-auto  ">
+                <div className="mt-5 flex-1 h-0 overflow-y-auto   border border-gray-500">
                   <nav
-                    className="flex-1 px-2 space-y-1 bg-white  "
+                    className="flex-1 px-2 space-y-1 bg-gray-300  "
                     aria-label="Sidebar"
                   >
                     {navigation.map((item) =>
@@ -355,16 +355,16 @@ export default function NavBar(props) {
                             to={item.href}
                             className={classNames(
                               item.current
-                                ? "bg-gray-50 text-indigo-600"
-                                : "hover:text-indigo-600 hover:bg-gray-50",
-                              "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-700"
+                                ? "bg-gray-50 text-gray-600"
+                                : "hover:text-gray-600 hover:bg-gray-50",
+                              "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-black"
                             )}
                           >
                             <item.icon
                               className={classNames(
                                 item.current
-                                  ? "text-indigo-600"
-                                  : "text-gray-400 group-hover:text-indigo-600",
+                                  ? "text-gray-500"
+                                  : "text-gray-700 group-hover:text-gray-500",
                                 "h-6 w-6 shrink-0"
                               )}
                               aria-hidden="true"
@@ -387,16 +387,16 @@ export default function NavBar(props) {
                               <Disclosure.Button
                                 className={classNames(
                                   item.current
-                                    ? "bg-gray-50 text-indigo-600"
-                                    : "hover:text-indigo-600 hover:bg-gray-50",
+                                    ? "bg-gray-600 text-gray-600"
+                                    : "hover:text-gray-500 hover:bg-white",
                                   "flex items-center w-full text-left rounded-md p-2 gap-x-3 text-sm leading-6 font-semibold text-gray-700"
                                 )}
                               >
                                 <item.icon
                                   className={classNames(
                                     item.current
-                                      ? "text-indigo-600"
-                                      : "text-gray-400 group-hover:text-indigo-600",
+                                      ? "text-gray-500"
+                                      : "text-gray-700 group-hover:text-gray-500",
                                     "h-6 w-6 shrink-0"
                                   )}
                                   aria-hidden="true"
@@ -432,10 +432,10 @@ export default function NavBar(props) {
                       )
                     )}
                   </nav>
-                  <div className="flex flex-shrink-0 border-t border-gray-200 p-4">
-                    <Link to="#" className="group block w-full flex-shrink-0">
-                      <div className="flex items-center">
-                        <div className="ml-3">
+                  <div className="flex flex-shrink-0 border-t border-gray-700  p-4">
+                    <Link to="#" className="group block w-full flex-shrink-0 gb-gray-300">
+                      <div className="flex items-center gb-gray-300">
+                        <div className="ml-3 gb-gray-300">
                           <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
                             @ Arrival
                           </p>
@@ -455,13 +455,13 @@ export default function NavBar(props) {
         {/* Static sidebar for desktop */}
         <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex flex-col flex-grow border-r border-gray-200 pt-5 bg-black overflow-y-auto ">
-            <div className="px-4 flex h-16 shrink-0 items-center">
+          <div className="flex flex-col flex-grow border-r border-gray-500 pt-5 bg-gray-200 overflow-y-auto ">
+            <div className="px-4 flex h-16 shrink-0 items-center border">
               <img className="h-32 w-auto" src={Arrival} />
             </div>
             <div className="mt-5 flex-grow flex flex-col">
               <nav
-                className="flex-1 px-2 space-y-1 bg-black"
+                className="flex-1 px-2 space-y-1 bg-gray-200 border  border-gray-400"
                 aria-label="Sidebar"
               >
                 {navigation.map((item) =>
@@ -471,17 +471,17 @@ export default function NavBar(props) {
                         to={item.href}
                         className={classNames(
                           item.current
-                            ? "bg-gray-50 text-indigo-600"
-                            : "hover:text-indigo-600 hover:bg-gray-50",
-                          "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-700"
+                            ? "bg-gray-50 text-gray-600"
+                            : "hover:text-gray-600 hover:bg-gray-50",
+                          "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-black"
                         )}
                       >
                         <item.icon
                           className={classNames(
                             item.current
-                              ? "text-indigo-600"
-                              : "text-white group-hover:text-indigo-600",
-                            "h-6 w-6 shrink-0"
+                              ? "text-gray-500"
+                              : "text-gray-700 group-hover:text-gray-500",
+                            "h-6 w-6 shrink-0 "
                           )}
                           aria-hidden="true"
                         />
@@ -508,8 +508,8 @@ export default function NavBar(props) {
                             <item.icon
                               className={classNames(
                                 item.current
-                                  ? "text-indigo-600"
-                                  : "text-gray-400 group-hover:text-indigo-600",
+                                  ? "text-gray-600"
+                                  : "text-gray-400 group-hover:text-gray-500",
                                 "h-6 w-6 shrink-0 mr-3"
                               )}
                               aria-hidden="true"
@@ -547,7 +547,7 @@ export default function NavBar(props) {
                 <Link to="#"  className="group block w-full flex-shrink-0">
                   <div className="flex items-center">
                     <div className="ml-3">
-                      <p className="text-sm font-medium text-white group-hover:text-gray-900">
+                      <p className="text-sm font-medium text-black group-hover:text-gray-900">
                         @ Arrival
                       </p>
                     </div>
@@ -558,7 +558,7 @@ export default function NavBar(props) {
           </div>
         </div>
         <div className="md:pl-64 flex flex-col flex-1">
-          <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-black shadow">
+          <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-gray-300 shadow">
             <button
               type="button"
               className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
@@ -568,7 +568,7 @@ export default function NavBar(props) {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
             <div className="flex-1 px-4 flex justify-between">
-              <div className="flex-1 flex bg-black">
+              <div className="flex-1 flex bg-white">
                 <form className="w-full flex md:ml-0" action="#" method="GET">
                   {searchUi && (
                     <form
@@ -585,7 +585,7 @@ export default function NavBar(props) {
                       />
                       <input
                         id="search-field"
-                        className="block h-full w-full border-0 rounded-full p-8  pl-8 pr-0 text-gray-500 bg-gray-300 text-with placeholder:text-gray-400 focus:ring-0 sm:text-sm"
+                        className="block h-full w-full border-0 rounded-full p-8  pl-8 pr-0 text-gray-500 bg-white text-with placeholder:text-gray-400 focus:ring-0 sm:text-sm"
                         placeholder="Search..."
                         type="search"
                         onChange={search}
@@ -693,9 +693,9 @@ export default function NavBar(props) {
           ) : hasError ? (
             renderErrorUI()
           ) : (
-            <div className="bg-black border">
+            <div className=" bg-gray-100 border">
               <body className="p-6 min-h-screen">
-                <main className="h-full bg-gray-400 p-4 rounded">
+                <main className="h-full bg-gray-100 p-4 rounded">
                   
                   <div>
                     <div>{props.childrenPage}</div>

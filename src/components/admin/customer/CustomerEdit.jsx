@@ -1,68 +1,67 @@
-import React, {useState} from 'react'
+import React from 'react'
+import { useState } from 'react';
 
 
 import axios from "axios";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
 
-const CustomerCreate = ({close}) => {
 
-const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address:"",
-    zipcode:"",
-    files:"",
-  });
-  const navigate = useNavigate();
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("No token found");
-      }
+const CustomerEdit = ({ close, customers }) => {
 
-     
+    console.log(customers)
+    const [formData, setFormData] = useState({
 
-      
+        name: customers.name,
+        email: customers.email,
+        phone: customers.phone,
+        address: customers.address,
+        zipcode:customers.zipcode,
+        files: "",
+    })
 
-      const response = await axios.post(
-        "public/api/customers",
-        formData,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      console.log(response)
-      toast.success(response.data.message);
-      close()
-    //   if (response.data.success) {
-    //     toast.success("Customer created successfully!");
-       
-    //   } 
-    } catch (error) {
-    //   if (error.response.status === 401) {
-    //     localStorage.removeItem("token");
-    //     // navigate("/crm/");
-    //   }
-      console.error("Error:", error);
-    }
-  };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                throw new Error("No token found");
+            }
+    
+            const response = await axios.put(
+                `public/api/customers/${customers.id}`,
+                formData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+    
+            console.log("Response:", response);
+            toast.success(response.data.message || "Customer updated successfully");
+    
+        } catch (error) {
+            console.error("Error:", error);
+            toast.error(error.response?.data?.message || "Update failed");
+        }
+    };
+    
+
+
     return (
         <div>
-            <div className="col-span-3 bg-gray-200 p-6">
+            <div className="  col-span-3 bg-gray-200 p-6">
                 <div className="max-w-7xl mx-auto md:px-8 flex justify-between items-center">
-                    <dt className="text-xl font-medium leading-6">NEW PLAN</dt>
+                    <dt className="text-xl font-medium leading-6">EDIT CUSTOMER</dt>
                     <button
                         onClick={close}
                         className="text-gray-500 hover:text-gray-700 focus:outline-none"
@@ -235,10 +234,8 @@ const [formData, setFormData] = useState({
 
                 </div>
             </div>
-
-
         </div>
     )
 }
 
-export default CustomerCreate
+export default CustomerEdit
