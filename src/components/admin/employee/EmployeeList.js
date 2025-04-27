@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Pagination } from "../../helper/HelperTwo";
-import { DataContext } from "../../helper/HelperOne";
+import { DataContext } from "../../../Context/HelperOne";
 import { Dialog, Transition } from "@headlessui/react";
 import { useNavigate } from "react-router-dom";
 import { XCircleIcon } from "@heroicons/react/20/solid";

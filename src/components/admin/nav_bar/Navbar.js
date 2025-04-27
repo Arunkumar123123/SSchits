@@ -1,5 +1,12 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
+import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
+
+
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 import {
   Bars3Icon,
   BellIcon,
@@ -13,19 +20,21 @@ import {
   ChevronRightIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
-import { DataContext } from "../../helper/HelperOne";
-
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { RectangleGroupIcon, UserCircleIcon,DocumentTextIcon ,UserGroupIcon} from "@heroicons/react/16/solid";
+import {
+   RectangleGroupIcon,
+   UserCircleIcon,
+   DocumentTextIcon ,
+   UserGroupIcon
+  } from "@heroicons/react/16/solid";
 import {
   Cog8ToothIcon,
   ShieldCheckIcon,
 } from "@heroicons/react/24/solid";
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
+
+
 import Arrival from "../../../images/arrival1.png";
-import { BiExitFullscreen, BiFullscreen } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { DataContext } from "../../../Context/HelperOne";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

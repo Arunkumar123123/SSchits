@@ -1,4 +1,4 @@
-import {DataContext} from "../../../helper/HelperOne";
+import { DataContext } from "../../../Context/HelperOne";
 import {useState} from "react";
 import NavBar from "../../nav_bar/Navbar";
 import EmployeeDesignationList from "./EmployeeDesignationList";

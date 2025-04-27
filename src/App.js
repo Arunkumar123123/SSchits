@@ -3,7 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./components/auth/Login";
 import axios from "axios";
 import { Unauthorized } from "./components/helper/HelperTwo";
-import { ProtectedRoute } from "./components/helper/HelperOne";
+// import { ProtectedRoute } from "./components/helper/HelperOne";
+import {ProtectedRoute} from "../src/Context/HelperOne"
 import Test from "./components/test/Test";
 import RoleCreate from "./components/admin/role/RoleCreate";
 import {
@@ -17,8 +18,7 @@ import Roles from "./components/admin/role/Role";
 import RoleAssign from "./components/admin/roleAssign/RoleAssign";
 import ForgetPassword from "./components/auth/ForgetPassword";
 import ResetPassword from "./components/auth/ResetPassword";
-import EmployeeDesignation from "./components/admin/Masters/EmployeeDesignation/EmployeeDesignation";
-import EmployeeDepartment from "./components/admin/Masters/EmployeeDepartment/EmployeeDepartment";
+
 import Dashboard from "./components/admin/dashboard/Dashboard";
 import Customer from "./components/admin/customer/Customer";
 import Plan from "./components/admin/plan/Plan";
@@ -80,7 +80,7 @@ function App() {
             />
           }
         />
-        <Route
+        {/* <Route
           path="/crm/employee/designation"
           element={
             <ProtectedRoute
@@ -88,16 +88,16 @@ function App() {
               allowed={employeePermission()}
             />
           }
-        />
-        <Route
-          path="/crm/employee/department"
-          element={
-            <ProtectedRoute
-              element={<EmployeeDepartment />}
-              allowed={employeePermission()}
-            />
-          }
-        />
+        /> */}
+          {/* <Route
+            path="/crm/employee/department"
+            element={
+              <ProtectedRoute
+                element={<EmployeeDepartment />}
+                allowed={employeePermission()}
+              />
+            }
+          /> */}
        
        
         <Route path="/unauthorized" element={<Unauthorized />} />

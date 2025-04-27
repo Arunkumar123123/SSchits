@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import bgImage from '../../images/bgImage.png';
+// import bgImage from '../../images/bgImage.png';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -30,7 +30,9 @@ const ForgetPassword = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover' }}>
+        <div className="min-h-screen flex items-center justify-center" 
+        // style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover' }}
+        >
             <div className="sm:mx-auto sm:w-full sm:max-w-sm bg-white rounded-lg overflow-hidden shadow-md px-6 py-8">
                 <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">Forget Password</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">

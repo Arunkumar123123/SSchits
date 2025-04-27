@@ -1,6 +1,9 @@
-import { DataContext } from "../../helper/HelperOne";
 import { useState } from "react";
+
+
+import { DataContext } from "../../../Context/HelperOne";
 import NavBar from "../nav_bar/Navbar";
+import GroupList from "./GroupList";
 
 const Group = () => {
     const [searchUi, setSearchUi] = useState(true)
@@ -8,8 +11,8 @@ const Group = () => {
   return (
     <DataContext.Provider value={{ searchUi, setSearchUi, searchData, setSearchData }}>
     <NavBar
-      childrenPage={<Group />}
-      menuId={3}
+      childrenPage={<GroupList />}
+      menuId={4}
     />
   </DataContext.Provider>
   )
